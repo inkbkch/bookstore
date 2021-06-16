@@ -1,0 +1,27 @@
+คำตอบข้อ 1.1
+function test(firstName, lastName) {
+    if(firstName == 'Shippop') {
+        console.log("Best Online Shipping Platform")
+    }
+    else {
+        console.log("Hello Shippop, My name is "+firstName+' '+lastName)
+    }
+}
+
+คำตอบข้อ 1.3
+
+การยอมเก็บฟังก์ชันลงในตัวแปร
+
+ตัวอย่าง
+var fisrt = test
+
+console.log(fisrt('ink','bongkoch')) 
+
+function test(firstName, lastName) {
+    if(firstName == 'Shippop') {
+        console.log("Best Online Shipping Platform")
+    }
+    else {
+        console.log("Hello Shippop, My name is "+firstName+' '+lastName)
+    }
+}
