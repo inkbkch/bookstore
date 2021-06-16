@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="../plugins/owlcarousel/assets/owl.theme.default.min.css">
+    <title>detail</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="">
+            <div class="row top">
+                <div class="col-9">
+                    <div class="d-flex flex-row left">
+                        <div class="p-2"><a href="#"><h1>Book</h1></a></div>
+                        <div class="p-2"><a href="#">สินค้าใหม่</a></div>
+                        <div class="p-2"><a href="#">สินค้าขายดี</a></div>
+                        <div class="p-2"><a href="#">สินค้าลดราคา</a></div>
+                        <div class="p-2"><a href="#">สินค้าแนะนำ</a></div>
+                      </div>
+                </div>
+                <div class="col-3">
+                    <div class="d-flex flex-row-reverse right">
+                        <div class="p-2"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></div>
+                        <div class="p-2"><img src="../assets/img/shopping-cart.png" width="20opx"></div>
+                        <div class="p-2"><img src="../assets/img/loupe.png" width="20px"></div>
+                    </div>
+                </div>
+            </div>
+       </nav>
+       <div class="detail">
+           <div class="row b">
+               <div class="col-4">
+                <div><img src="../assets/img/b1.jpg" width="100%"></div>
+                <div class="row">
+                    <div class="col-12"><img src="../assets/img/b1.jpg" width="30%"><img src="../assets/img/b1.jpg" width="30%"></div>
+                </div>
+               </div>
+               <div class="col-8">
+                 <h1>รสชาติของผลไม้ที่ยังไม่สุกงอม</h1>
+                 <div class="detailbook">
+                    <div>ผู้เขียน : โซนัมจู<br>สำนักพิมพ์ : Piccolo<br>หมวดหมู่ : วรรณกรรม เรื่องสั้น<br>ประเภทของสินค้า : Books<br>บาร์โค้ด : 9786161840488</div>
+                 </div>
+                 <div class="dt-price">ราคา <span class="pricenm">THB499.00</span> <span class="disc">THB599.00</span></div>
+                 <div>
+                    <input class="numb" type="number" value="1" name="counter1" id="counter1" class=""> <a href="#" class="btn-add-cart">Add</a> <a href="#" class="btn-washl"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
+                 </div>
+                 <div class="share">แชร์: <a href="#"><img src="../assets/img/facebook.png"></a><a href="#"><img src="../assets/img/twitter.png"></a><a href="#"><img src="../assets/img/google-plus.png"></a><a href="#"><img src="../assets/img/deviantart.png"></a></div>
+               </div>
+           </div>
+           <div class="tab">
+               <button class="btn-dt" onclick="detail('about')">เกี่ยวกับสินค้า</button>
+               <button class="btn-dt" onclick="detail('detail')">รายละเอียด</button>
+           </div>
+           <hr>
+           <div id="about" class="detail-book">
+            <p>รายละเอียด:รสชาติของผลไม้ที่ยังไม่สุกงอม</p>
+            <p>ก่อนที่ชีวิตของเด็กสาวววววววววววววววววววววววววววววววววววววววววววววววววววววววววว</p> 
+          </div> 
+          <div id="detail" class="detail-book" style="display:none">
+            <p>รายละเอียด:รสชาติของผลไม้ที่ยังไม่สุกงอม</p>
+            <p>ก่gggggggggggggggggggggggggggggggggggggg</p> 
+          </div> 
+
+          <div class="row pd2">
+            <div class="col-6">
+              <h3>สินค้าที่เกี่ยวข้อง</h2>
+            </div>
+            <div class="col-6 end">
+              <a href="#">ดูสินค้าทั้งหมด</a>
+            </div>
+          <ul class="card-list owl-carousel owl-theme" id="productList2">
+            <!-- <li>
+                <div class="card">
+                  <div>มีสินค้า</div>
+                  <div><img src="../assets/img/b1.jpg" width="100%"></div>
+                  <div><span>star</span> Reviews (4)</div>
+                  <div>รสชาติของผลไม้ที่ยังไม่สุกงอม</div>
+                  <div><span>THB599.00</span><br> THB499.00</div>
+                </div>
+            </li> -->
+            </ul>
+          
+        </div>
+
+          
+       </div>
+    </div>
+
+</body>
+</html>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/javascript.js"></script>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../plugins/owlcarousel/owl.carousel.min.js"></script>
+
+<script>
+setupProduct(data);
+
+function setupProduct(responeData) {
+
+  var container = document.getElementById('productList2');
+
+  for (var i = 0; i < responeData.length; i++) {
+      const data = responeData[i];
+ 
+      var html = "";
+      html += '<li class="btn-add">';
+      html += '<div class="card">';
+        if (data.stock == true) {
+          html += '<div class="st"><i class="fa fa-check-circle" aria-hidden="true"></i> มีสินค้า</div>';
+        }
+        else {
+          html += '<div class="ust"><i class="fa fa-times-circle" aria-hidden="true"></i> ไม่มีสินค้า</div>';
+        }
+      html += '<div class="img-b"><img src="../assets/img/b1.jpg" width="100%"><div class="row bar-r"><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i></a><br><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></div></div>';
+      html += '<div class="btn-add-c">'
+      html += '<a type="button" href="detailProduct.html" class="btn-addonho btn add-c"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>'
+      html += '</div>'
+      html += '<div class="ct-text">';
+      html += '<div>';
+      
+      
+      // for (var i = 0; i < 5; i++) {
+
+        html += '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></span><span class="fa fa-star uncheck"></span>';
+
+      // }
+
+      html += '<span class="rev">Reviews ('+data.review+')</span></div>';
+      html += '<div class="prod-name">'+data.name+'</div>';
+      html += '<div class="price"><span class="disc">THB'+data.bfdiscount+'</span><br>THB'+data.price+'</div>'
+      html += '</div>';
+      html += '</div>'
+      html += '</li>';
+
+      container.innerHTML += html;
+  }
+
+}
+
+$(document).ready(function() {
+ 
+ $(".owl-carousel").owlCarousel();
+
+});
+
+$(".owl-carousel").owlCarousel({
+ 
+ //Basic Speeds
+ slideSpeed : 200,
+ paginationSpeed : 800,
+
+ //Autoplay
+ autoPlay : true,
+ goToFirst : true,
+ goToFirstSpeed : 1000,
+
+ // Navigation
+ navigation : true,
+ navigationText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+ pagination : false,
+ paginationNumbers: false,
+
+ // Responsive
+ responsive: true,
+ items : 5,
+ itemsDesktop : [1199,5],
+ itemsDesktopSmall : [980,4],
+ itemsTablet: [768,4],
+ itemsMobile : [479,2]
+
+})
+
+$( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+$( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+function detail(detail) {
+  var i;
+  var x = document.getElementsByClassName("detail-book");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(detail).style.display = "block";  
+
+}
+</script>
