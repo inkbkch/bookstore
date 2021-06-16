@@ -28,15 +28,15 @@
                     <div class="col-3">
                         <div class="d-flex flex-row-reverse right">
                             <div class="p-2"><a href="#"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></a></div>
-                            <div class="p-2"><a id="pop" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" href="#"><img src="../assets/img/shopping-cart.png" class="shop" width="20opx"><span class="shp-c">1<span></span></a></div>
+                            <div class="p-2"><a id="" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" href="#"><img src="../assets/img/shopping-cart.png" class="shop" width="20opx"><span class="shp-c"><span id="pop">0</span></a></div>
                             <div class="p-2"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
                         </div>
                     </div>
-                </div>
-                
+                </div>           
            </nav>
  
            <div class="content">
+            </button>
                 <div class="slide">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -70,7 +70,7 @@
                     </div>
                   </div>
 
-                  <ul class="card-list owl-carousel owl-theme" id="productList">
+                  <ul class="card-listi owl-carousel owl-theme" id="productList">
                       <!-- <li>
                           <div class="card">
                             <div>มีสินค้า</div>
@@ -88,7 +88,7 @@
                     <div class="col-6 end">
                       <a href="#">ดูสินค้าขายดีทั้งหมด</a>
                   </div>
-                      <ul class="card-list owl-carousel owl-theme" id="productList1">
+                      <ul class="card-listi owl-carousel owl-theme" id="productList1">
                       <!-- <li>
                           <div class="card">
                             <div>มีสินค้า</div>
@@ -115,13 +115,12 @@
 <script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../plugins/owlcarousel/owl.carousel.min.js"></script>
 
+
 <script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();   
-});
+var productlist = [];
 
 setupProduct(data);
-setupProduct2(data)
+setupProduct2(data);
 
 function setupProduct(responeData) {
 
@@ -132,7 +131,7 @@ function setupProduct(responeData) {
  
       var html = "";
       html += '<li class="btn-add">';
-      html += '<div class="card">';
+      html += '<div class="cardi">';
         if (data.stock == true) {
           html += '<div class="st"><i class="fa fa-check-circle" aria-hidden="true"></i> มีสินค้า</div>';
         }
@@ -141,7 +140,7 @@ function setupProduct(responeData) {
         }
       html += '<div class="img-b"><img src="../assets/img/b1.jpg" width="100%"><div class="row bar-r"><a href="#"><i class="fa fa-gratipay" aria-hidden="true"></i></a><br><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></div></div>';
       html += '<div class="btn-add-c">'
-      html += '<a type="button" href="" class="btn-addonho btn add-c"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</a>'
+      html += '<button type="button" onclick="addProduct('+data.id+')" class="btn btn-addonho btn add-c"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>'
       html += '</div>'
       html += '<div class="ct-text">';
       html += '<a href="detailProduct.html">'
@@ -167,6 +166,13 @@ function setupProduct(responeData) {
 
 }
 
+function addProduct(product) {
+
+  productlist.push(product);
+  document.getElementById('pop').innerText = productlist.length
+
+}
+
 function setupProduct2(responeData) {
 
 var container = document.getElementById('productList1');
@@ -177,7 +183,7 @@ for (var i = 0; i < responeData.length; i++) {
 
     var html = "";
     html += '<li class="btn-add">';
-    html += '<div class="card">';
+    html += '<div class="cardi">';
       if (data.stock == true) {
         html += '<div class="st"><i class="fa fa-check-circle" aria-hidden="true"></i> มีสินค้า</div>';
       }
@@ -248,7 +254,5 @@ $(".owl-carousel").owlCarousel({
 
 $( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
 $( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
-
-
 
 </script>

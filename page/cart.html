@@ -17,7 +17,7 @@
             <div class="row top">
                 <div class="col-9">
                     <div class="d-flex flex-row left">
-                        <div class="p-2"><a href="#"><h1>Book</h1></a></div>
+                        <div class="p-2"><a href="index.html"><h1>Book</h1></a></div>
                         <div class="p-2"><a href="#">สินค้าใหม่</a></div>
                         <div class="p-2"><a href="#">สินค้าขายดี</a></div>
                         <div class="p-2"><a href="#">สินค้าลดราคา</a></div>
@@ -26,12 +26,12 @@
                 </div>
                 <div class="col-3">
                     <div class="d-flex flex-row-reverse right">
-                        <div class="p-2"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></div>
-                        <div class="p-2"><img src="../assets/img/shopping-cart.png" width="20opx"></div>
-                        <div class="p-2"><img src="../assets/img/loupe.png" width="20px"></div>
+                        <div class="p-2"><a href="#"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></a></div>
+                        <div class="p-2"><a id="" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" href="#"><img src="../assets/img/shopping-cart.png" class="shop" width="20opx"><span class="shp-c"><span id="pop">0</span></a></div>
+                        <div class="p-2"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
-            </div>
+            </div>           
        </nav>
        <div class="cart">
         <div class="head"><h2>ตะกร้าสินค้า</h2></div>
@@ -51,7 +51,7 @@
                         <td><img src="../assets/img/b1.jpg" width="100px"></td>
                         <td>nameproduct</td>
                         <td>pirce</td>
-                        <td><input class="numb2" type="number" value="1" name="counter1" id="counter1" class=""></td>
+                        <td><input class="numb2" oninput="valueChange()" type="number" value="1" name="counter1" id="counter1" class=""></td>
                         <td >pirce</td>
                         <td>
                             <a href="#"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a><br>
@@ -61,20 +61,20 @@
                     </tbody>
                   </table>
                <div>
-                   <a href="#" class="btn-buy">ซื้อสินค้าต่อไป</a>   <a href="#" class="btn-del">ล้างตะกร้าสินค้า</a>
+                   <a href="index.html" class="btn-buy">ซื้อสินค้าต่อไป</a>   <a href="#" class="btn-del">ล้างตะกร้าสินค้า</a>
                </div>
             </div>
             <div class="col-3 summary">
                 <h5>สรุปคำสั่งซื้อ</h5>
                 <div class="row pd-t">
                     <div class="col-6">ยอดรวม</div>
-                    <div class="col-6">THB499.00</div>
+                    <div class="col-6">THB<span id="price">499.00</span></div>
                     <div class="col-6">ค่าส่ง</div>
                     <div class="col-6">THB1.00</div>
                     <div class="col-12"><hr></div>
                     <div class="col-6">ยอดสุทธิ</div>
-                    <div class="col-6 bf">THB500.00</div>
-                    <div class="col-12"><a href="pay.html" class="btn btn-summ">ไปชำระเงิน</a></div>
+                    <div class="col-6 bf" >THB<span id="sumPrice">500.00</span></div>
+                    <div class="col-12"><a onclick="openPay()" class="btn btn-summ">ไปชำระเงิน</a></div>
                 </div>
               
             </div>
@@ -91,5 +91,33 @@
 <script src="../plugins/owlcarousel/owl.carousel.min.js"></script>
 
 <script>
+ var price = 499;
+ var shipping = 1;   
+ var book = 1;
+ 
+ function valueChange() {
 
+    var counter = document.getElementById('counter1');
+    book = counter.value
+
+
+    var priceText = document.getElementById('price');
+    var sumPriceText = document.getElementById('sumPrice');
+
+    if (counter.value < 1) {
+        counter.value = 0
+    } else {
+
+        priceText.innerText = book*price;
+        sumPriceText.innerText = (book*price)+shipping;
+    }
+
+ }
+
+ function openPay(){
+
+     var sum = (book*price)+shipping;
+
+     window.location ='pay.html?price=' +book*price+ '&sum='+sum+'&book='+book
+ }
 </script>

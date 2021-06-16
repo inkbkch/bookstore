@@ -17,7 +17,7 @@
             <div class="row top">
                 <div class="col-9">
                     <div class="d-flex flex-row left">
-                        <div class="p-2"><a href="#"><h1>Book</h1></a></div>
+                        <div class="p-2"><a href="index.html"><h1>Book</h1></a></div>
                         <div class="p-2"><a href="#">สินค้าใหม่</a></div>
                         <div class="p-2"><a href="#">สินค้าขายดี</a></div>
                         <div class="p-2"><a href="#">สินค้าลดราคา</a></div>
@@ -26,12 +26,12 @@
                 </div>
                 <div class="col-3">
                     <div class="d-flex flex-row-reverse right">
-                        <div class="p-2"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></div>
-                        <div class="p-2"><img src="../assets/img/shopping-cart.png" width="20opx"></div>
-                        <div class="p-2"><img src="../assets/img/loupe.png" width="20px"></div>
+                        <div class="p-2"><a href="#"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></a></div>
+                        <div class="p-2"><a id="" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" href="#"><img src="../assets/img/shopping-cart.png" class="shop" width="20opx"><span class="shp-c"><span id="pop">0</span></a></div>
+                        <div class="p-2"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
-            </div>
+            </div>           
        </nav>
        <div class="cart">
         <div class="head"><h2>ชำระเงิน</h2></div>
@@ -390,12 +390,12 @@
                 <h5>สรุปคำสั่งซื้อ</h5>
                 <div class="row pd-t">
                     <div class="col-6">ยอดรวม</div>
-                    <div class="col-6">THB499.00</div>
+                    <div class="col-6">THB<span id="price">499.00</span></div>
                     <div class="col-6">ค่าส่ง</div>
                     <div class="col-6">THB1.00</div>
                     <div class="col-12"><hr></div>
                     <div class="col-6">ยอดสุทธิ</div>
-                    <div class="col-6 bf">THB500.00</div>
+                    <div class="col-6 bf" >THB<span id="sumPrice">500.00</span></div>
                     <div class="col-12"><button href="#" class="btn btn-summ"><i class="fa fa-lock" aria-hidden="true"></i> ชำระเงิน</button></div>
                 </div>
               
@@ -413,5 +413,21 @@
 <script src="../plugins/owlcarousel/owl.carousel.min.js"></script>
 
 <script>
+
+setupPage() 
+function setupPage() {
+const queryString = window.location.search;
+const url = new URLSearchParams(queryString);
+ var price = url.get("price");
+ var sum =  url.get("sum");
+ var book = url.get("book");
+
+    var priceText = document.getElementById('price');
+    var sumPriceText = document.getElementById('sumPrice');
+
+    priceText.innerText = price
+    sumPriceText.innerText = sum
+ 
+}
 
 </script>

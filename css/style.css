@@ -50,12 +50,12 @@ a:hover {
   text-decoration: none;
 }
 
-.card-list{
+.card-listi{
   width: 100%;
   list-style: none;
   padding-left: 0px;
 }
-.card-list li{
+.card-listi li{
   width: 100%;
   float: left;
 }
@@ -81,7 +81,7 @@ a:hover {
   padding: 5px 15px;
   font-size: 18px;
 }
-.card{
+.cardi{
   border: none;
   padding: 15px;
 }
@@ -141,8 +141,9 @@ span.disc{
   display: block;
   color: #0d6efd;
   z-index: 9999;
+  margin: auto;
 }
-.btn-add:hover .card{
+.btn-add:hover .cardi{
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 .owl-carousel.owl-drag .owl-item:hover{

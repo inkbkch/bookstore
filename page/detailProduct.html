@@ -13,26 +13,26 @@
 </head>
 <body>
     <div class="wrapper">
-        <nav class="">
-            <div class="row top">
-                <div class="col-9">
-                    <div class="d-flex flex-row left">
-                        <div class="p-2"><a href="#"><h1>Book</h1></a></div>
-                        <div class="p-2"><a href="#">สินค้าใหม่</a></div>
-                        <div class="p-2"><a href="#">สินค้าขายดี</a></div>
-                        <div class="p-2"><a href="#">สินค้าลดราคา</a></div>
-                        <div class="p-2"><a href="#">สินค้าแนะนำ</a></div>
-                      </div>
-                </div>
-                <div class="col-3">
-                    <div class="d-flex flex-row-reverse right">
-                        <div class="p-2"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></div>
-                        <div class="p-2"><img src="../assets/img/shopping-cart.png" width="20opx"></div>
-                        <div class="p-2"><img src="../assets/img/loupe.png" width="20px"></div>
+      <nav class="">
+        <div class="row top">
+            <div class="col-9">
+                <div class="d-flex flex-row left">
+                    <div class="p-2"><a href="index.html"><h1>Book</h1></a></div>
+                    <div class="p-2"><a href="#">สินค้าใหม่</a></div>
+                    <div class="p-2"><a href="#">สินค้าขายดี</a></div>
+                    <div class="p-2"><a href="#">สินค้าลดราคา</a></div>
+                    <div class="p-2"><a href="#">สินค้าแนะนำ</a></div>
+                  </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex flex-row-reverse right">
+                    <div class="p-2"><a href="#"><img src="../assets/img/pic.jpg" width="40opx" class="profile"></a></div>
+                    <div class="p-2"><a id="" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover" href="#"><img src="../assets/img/shopping-cart.png" class="shop" width="20opx"><span class="shp-c"><span id="pop">0</span></a></div>
+                    <div class="p-2"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
-            </div>
-       </nav>
+            </div>           
+      </nav>
        <div class="detail">
            <div class="row b">
                <div class="col-4">
@@ -48,7 +48,7 @@
                  </div>
                  <div class="dt-price">ราคา <span class="pricenm">THB499.00</span> <span class="disc">THB599.00</span></div>
                  <div>
-                    <input class="numb" type="number" value="1" name="counter1" id="counter1" class=""> <a href="#" class="btn-add-cart">Add</a> <a href="#" class="btn-washl"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
+                    <input class="numb" oninput="valuechange()" type="number" value="1" name="counter1" id="counter1" class=""> <a href="cart.html" class="btn-add-cart">Add</a> <a href="#" class="btn-washl"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
                  </div>
                  <div class="share">แชร์: <a href="#"><img src="../assets/img/facebook.png"></a><a href="#"><img src="../assets/img/twitter.png"></a><a href="#"><img src="../assets/img/google-plus.png"></a><a href="#"><img src="../assets/img/deviantart.png"></a></div>
                </div>
@@ -74,7 +74,7 @@
             <div class="col-6 end">
               <a href="#">ดูสินค้าทั้งหมด</a>
             </div>
-          <ul class="card-list owl-carousel owl-theme" id="productList2">
+          <ul class="card-listi owl-carousel owl-theme" id="productList2">
             <!-- <li>
                 <div class="card">
                   <div>มีสินค้า</div>
@@ -111,7 +111,7 @@ function setupProduct(responeData) {
  
       var html = "";
       html += '<li class="btn-add">';
-      html += '<div class="card">';
+      html += '<div class="cardi">';
         if (data.stock == true) {
           html += '<div class="st"><i class="fa fa-check-circle" aria-hidden="true"></i> มีสินค้า</div>';
         }
@@ -179,6 +179,8 @@ $(".owl-carousel").owlCarousel({
 
 $( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
 $( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+
+
 function detail(detail) {
   var i;
   var x = document.getElementsByClassName("detail-book");
@@ -186,6 +188,9 @@ function detail(detail) {
     x[i].style.display = "none";  
   }
   document.getElementById(detail).style.display = "block";  
+}
 
+function valuechange() {
+  console.log('ink')
 }
 </script>
